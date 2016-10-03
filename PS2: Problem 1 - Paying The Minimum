@@ -19,4 +19,4 @@ for i in range(12):
     balance = monthlyUnpaidBalance + (monthlyIntRate * monthlyUnpaidBalance)
     totalPaid +=minMonthlyPmnt
     
-print "Remaining balance: %.2f " % balance
+print "Remaining balance: %.2f " % balance 
