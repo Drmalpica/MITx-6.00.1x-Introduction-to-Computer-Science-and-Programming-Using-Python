@@ -1,0 +1,22 @@
+"""
+Given the following: 
+balance - the outstanding balance on the credit card
+annualInterestRate - annual interest rate as a decimal
+monthlyPaymentRate - minimum monthly payment rate as a decimal
+
+Calculate the remaining balance left on account after paying the minimum monthly payment for 12 months
+"""
+balance = 4213
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+totalPaid = 0
+
+monthlyIntRate = annualInterestRate/12.0
+
+for i in range(12): 
+    minMonthlyPmnt = monthlyPaymentRate * balance
+    monthlyUnpaidBalance = balance - minMonthlyPmnt
+    balance = monthlyUnpaidBalance + (monthlyIntRate * monthlyUnpaidBalance)
+    totalPaid +=minMonthlyPmnt
+    
+print "Remaining balance: %.2f " % balance
