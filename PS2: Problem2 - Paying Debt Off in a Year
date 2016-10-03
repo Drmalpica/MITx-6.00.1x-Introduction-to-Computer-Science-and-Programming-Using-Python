@@ -1,0 +1,30 @@
+
+"""
+Paying Debt Off in a Year: 
+
+balance = outstanding balance on card
+annualInterestRate = annual interest rate as a decimal
+
+This program will tell you the lowest amount you need to pay each month in order to pay off the balance within a year
+"""
+poss_payments = []
+
+for payment in range(0, balance, 10):
+    total_paid = 0
+    new_balance = 0+balance
+    
+    for m in range(12): 
+        unpaid = new_balance - payment
+        interest = unpaid * (annualInterestRate/12)    #interest charged to account based on unpaid balance and monthly interest rate
+        new_balance = unpaid + interest         #new balance
+        total_paid = total_paid + payment
+        m+=1
+        if unpaid < payment and m == 11: 
+            poss_payments.append(payment)
+        elif unpaid <=0 and m ==11: 
+            poss_payments.append(payment)
+        elif balance <=50: 
+            poss_payments.append(10)
+
+print "lowest payment is: ", min(poss_payments)
+            
