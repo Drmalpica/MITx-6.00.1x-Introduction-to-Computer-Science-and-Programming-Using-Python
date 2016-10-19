@@ -1,0 +1,19 @@
+low = balance/12
+high = (balance*(1+(annualInterestRate/12)**12)/12.0)
+payment = round((high + low)/2, 2)
+
+while True: 
+    for m in range(12):
+        print 'payment: ', payment 
+        new_balance = balance- payment
+        balance = round((new_balance + (new_balance * (annualInterestRate/12.0))), 2) 
+        print 'balance: ', balance
+    if abs(balance) < 0.1: 
+        print( "lowest payment is: ", payment)        
+        break
+    else: 
+        if balance > 0: 
+            low  = payment
+        elif balance < 0:
+            high = payment
+        payment = (high+low)/2
