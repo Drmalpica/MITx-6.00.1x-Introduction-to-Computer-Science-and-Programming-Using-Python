@@ -1,0 +1,36 @@
+# lec5.9-isPalindrome.py
+# edX MITx 6.00.1x
+# Introduction to Computer Science and Programming Using Python
+# Lecture 5, video 9
+
+#This script takes a string and determines if it is a palindrome
+
+def isPalindrome(aString):
+    '''
+    aString: a string
+    '''
+    # Your code here
+    if aString == '':
+        return True
+    aString = aString.lower()
+    bString = ''
+    alpha = 'abcdefghijklmnopqrstuvwxyz'
+    
+    # Remove non-letter characters and spaces from string
+    for l in aString: 
+        if l in alpha: 
+            bString = bString + l
+    
+    # See if string is one letter.  If so, return True. Then, compare first character with last character of the string copy. 
+    # If they don't match, not a palindrome, so return False.  Otherwise, remove last letter from the copy and move onto the
+    # next letter in the string and repeat. 
+    bString_copy = bString[:]
+    for l in bString: 
+        if len(bString) == 1: 
+            return True
+        elif l != bString_copy[-1]: 
+            return False
+        elif l == bString_copy[-1] and len(bString_copy) ==1: 
+            return True
+        else: 
+            bString_copy = bString_copy[:-1]
